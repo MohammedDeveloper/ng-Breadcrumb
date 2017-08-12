@@ -1,0 +1,63 @@
+<!-- HOME SECTION-->
+<section id="home-gallery-sec">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <!-- SEARCH RESULTS SECTION-->
+        <section id="home-search-results-sec">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <h2>
+                  {{ airport.Name }}
+                </h2>
+                <div class="panel panel-default" *ngFor="let airLine of airportFlights" [class.hidden]="airportFlights.length === 0">
+                  <div class="panel-heading">
+                    <h4>
+                      <span class="alkColor fa-2x"><span class="fa fa-plane"></span> Aero <small>Flight #{{airLine.FlightNumber}}</small></span>
+                      <a class="pull-right" title="View {{ airLine.FlightNumber }} Price" [routerLink]=" ['/flights/details/', airLine.FlightNumber]">View</a>
+                    </h4>
+                  </div>
+                  <div class="panel-body">
+                    <span class="fa-2x">
+                      <span>
+                        <span class="fa fa-certificate alkColor"></span> &nbsp;
+                    <small class="flightime">
+                          <span class="fa fa-clock-o alkColor"></span>
+                          <span>&nbsp;{{airLine.Departs}}</span>
+                        </small>
+                    <br /> {{ getAirportName(airLine.From) }} [{{airLine.From}}]
+                    </span>
+                    </span>
+
+                    <br />
+                    <span class="fa fa-arrow-down alkColor fa-2x"></span>
+
+                    <br />
+                    <span class="fa-2x">
+                      <span class="alkColor">
+                        <span class="fa fa-certificate colorGreen"></span> &nbsp;
+                    <small class="flightime">
+                          <span class="fa fa-clock-o colorGreen"></span>
+                          <span>&nbsp;{{airLine.Arrives}}</span>
+                        </small>
+                    <br /> {{ getAirportName(airLine.To) }} [{{airLine.To}}]
+                    </span>
+                    </span>
+                  </div>
+                </div>
+                <div class="alert alert-info fade in" [class.hidden]="airportFlights.length > 0">
+                    <strong>Oops!</strong> No flights found for the below search
+                  </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--END SEARCH RESULTS SECTION-->
+
+      </div>
+    </div>
+  </div>
+</section>
+<!--END HOME SECTION-->

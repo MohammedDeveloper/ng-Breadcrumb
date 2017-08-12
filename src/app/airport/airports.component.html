@@ -1,0 +1,31 @@
+<!-- Airports SECTION-->
+<section id="home-gallery-sec">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">      
+
+        <!-- SEARCH RESULTS SECTION-->
+        <section id="home-search-results-sec">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="panel panel-default" *ngFor="let airp of airports">
+                  <div class="panel-heading">
+                    <h4>
+                      <a title="View {{ airp.Name }} Flights" routerLink="flights/{{airp.Code}}" class="alkColor fa-2x">
+                        <span class="fa fa-plane"></span><strong> {{ airp.Name }}</strong>
+                      </a> | <small>{{ airp.Code }} </small>
+                    </h4>
+                  </div>
+                </div>               
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--END SEARCH RESULTS SECTION-->
+
+      </div>
+    </div>
+  </div>
+</section>
+<!--END HOME SECTION-->
